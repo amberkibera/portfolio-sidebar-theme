@@ -32,12 +32,40 @@
   <title>portfolio-sidebar-theme</title>
 </head>
 
+<script type="module" src="portfolio-page.js"></script>
+<script type="module" src="portfolio-sidebar-theme.js"></script>
+<script>
+  window.addEventListener('page-added', (e) =>{
+    console.log(e.detail.value);
+  }
+  )
+</script>
+
 <body>
   <div id="demo">
     <h1>portfolio-sidebar-theme</h1>
     <!-- this is going to do whatever the tag's defaults are -->
     <h2>Default</h2>
-    <portfolio-sidebar-theme></portfolio-sidebar-theme>
+    <portfolio-sidebar-theme>
+      <portfolio-page title = "About me" pagenumber="1">
+        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      </portfolio-page>
+      <portfolio-page title = "Page 2" pagenumber="2">
+        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      </portfolio-page>
+      <portfolio-page title = "Page 3 me" pagenumber="3">
+        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      </portfolio-page>
+      <portfolio-page title = "Page 4 me" pagenumber="4">
+        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      </portfolio-page>
+      <portfolio-page title = "Page 5 me" pagenumber="5">
+        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      </portfolio-page>
+
+
+
+    </portfolio-sidebar-theme>
     
   </div>
   <script type="module" src="./portfolio-sidebar-theme.js"></script>

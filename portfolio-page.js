@@ -5,7 +5,6 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-import "./portfolio-sidebar.js";
 
 /**
  * `portfolio-sidebar-theme`
@@ -13,27 +12,16 @@ import "./portfolio-sidebar.js";
  * @demo index.html
  * @element portfolio-sidebar-theme
  */
-export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "portfolio-sidebar-theme";
+    return "portfolio-page";
   }
 
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/portfolio-sidebar-theme.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.pagenumber = null;
   }
 
   // Lit reactive properties
@@ -41,6 +29,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      pagenumber: {type: Number}
     };
   }
 
@@ -53,13 +42,14 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
+        margin-left: 200px;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
       }
       h3 span {
-        font-size: var(--portfolio-sidebar-theme-label-font-size, var(--ddd-font-size-s));
+        font-size: var(--portfolio-page-label-font-size, var(--ddd-font-size-s));
       }
     `];
   }
@@ -67,20 +57,23 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <portfolio-sidebar></portfolio-sidebar>
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
+    <h1>${this.title}</h1>
+<div class="wrapper"> @click="${this.thing}">
   <slot></slot>
 </div>`;
   }
 
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
-  }
+  firstUpdate(changedProperties) {
+    if (super.firstUpdate) {
+        super.firstUpdated(changedProperties);
+    }
+    this.dispatchEvent(new CustomEvent('page-added')), {
+        bubbles: true,
+        composed: true,
+        details:  {
+            value:this
+        }}}
+  
 }
 
-globalThis.customElements.define(PortfolioSidebarTheme.tag, PortfolioSidebarTheme);
+globalThis.customElements.define(PortfolioPage.tag, PortfolioPage);
