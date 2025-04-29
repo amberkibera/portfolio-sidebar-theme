@@ -50,6 +50,9 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         width: 200px;
         background-color: white;
         position: fixed;
+        display: flex;
+        flex-direction: column;
+        
       }
       h3 span {
         font-size: var(--portfolio-sidebar-label-font-size, var(--ddd-font-size-s));
@@ -60,10 +63,18 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
- <div class="wrapper">
-<a>
-    Link
-</a>
+ <nav class="wrapper">
+        <a href="#screen-1">About</a>
+        <a href="#screen-2">Resume</a>
+        <a href="#screen-3">Relevant Projects</a>
+        <a href="#screen-4">Work Experience</a>
+        <a href="#screen-5">Contact</a>
+
+    
+      </nav>
+
+
+
 
  </div>
 `;

@@ -42,7 +42,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-        margin-left: 200px;
+        margin-left: 200;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -57,8 +57,9 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
+      <section id="screen-${this.pagenumber}"></section>
     <h1>${this.title}</h1>
-<div class="wrapper"> @click="${this.thing}">
+
   <slot></slot>
 </div>`;
   }

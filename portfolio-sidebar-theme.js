@@ -21,19 +21,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/portfolio-sidebar-theme.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+   
   }
 
   // Lit reactive properties
@@ -61,7 +49,20 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--portfolio-sidebar-theme-label-font-size, var(--ddd-font-size-s));
       }
+      
     `];
+  }
+
+  firstUpdated() {
+    super.firstUpdated && super.firstUpdated();
+    // If there's a hash on load, scroll to it
+    requestAnimationFrame(() => {
+      const hash = location.hash.slice(1);
+      if (hash) {
+        const el = this.querySelector(`#${hash}`);
+        el && el.scrollIntoView();
+      }
+    });
   }
 
   // Lit render the HTML
@@ -69,7 +70,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="wrapper">
   <portfolio-sidebar></portfolio-sidebar>
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
+  <div class="wrapper"></div>
   <slot></slot>
 </div>`;
   }
