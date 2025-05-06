@@ -40,15 +40,15 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        background-color: black;
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
-        height:100vh;
-        width: 200px;
-        background-color: white;
+        height:90vh;
+        width: 90px;
+        background-color: black;
         position: fixed;
         display: flex;
         flex-direction: column;
@@ -64,20 +64,16 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
  <nav class="wrapper">
-        <a href="#screen-1">About</a>
-        <a href="#screen-2">Resume</a>
-        <a href="#screen-3">Relevant Projects</a>
-        <a href="#screen-4">Work Experience</a>
-        <a href="#screen-5">Contact</a>
+        <a href="#screen-1" @click="${this._onNav}">About</a>
+        <a href="#screen-2" @click="${this._onNav}">Resume</a>
+        <a href="#screen-3" @click="${this._onNav}">Projects</a>
+        <a href="#screen-4" @click="${this._onNav}">Experience</a>
+        <a href="#screen-5" @click="${this._onNav}">Contact</a>
 
     
       </nav>
-
-
-
-
- </div>
 `;
+  
   }
 
   firstUpdate(changedProperties) {

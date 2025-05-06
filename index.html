@@ -8,32 +8,64 @@
   <meta name="Description" content="Demonstration for portfolio-sidebar-theme">
 
   <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    portfolio-sidebar-theme {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    portfolio-sidebar-theme:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --portfolio-sidebar-theme-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
+    
+      :root,
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      body {
+        font-family: sans-serif;
+      }
+
+      
+      portfolio-page > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      
+      .resume-viewer {
+        width: 80%;
+        height: 80%;
+        border: none;
+      }
+
+      
+      .profile-pic {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        text-align: left;
+        
+      }
+
+      .about-text {
+        max-width: 700px;
+        text-align: right;
+        margin-left: auto;
+        font-size: var(--ddd-spacing-6);
+        padding-top: 10px;
+      }
+
   </style>
   <title>portfolio-sidebar-theme</title>
 </head>
 
 <script type="module" src="portfolio-page.js"></script>
 <script type="module" src="portfolio-sidebar-theme.js"></script>
+<script type="module" src="./portfolio-sidebar.js"></script>
+
 <script>
   window.addEventListener('page-added', (e) =>{
     console.log(e.detail.value);
@@ -43,25 +75,34 @@
 
 <body>
   <div id="demo">
-    <h1>portfolio-sidebar-theme</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
+   
     <portfolio-sidebar-theme>
-      <portfolio-page title = "About" pagenumber="1">
-        <p>My name is Amber-Chelsea Kibera and I am currently a sophomore attending Penn State University majoring in cybersecurity analytics and operations and minoring in security risk analysis. I have been able to gain hands-on experience in security risk analysis and network security through my coursework and team projects. During my internships at Velta Technology and Barry-Wehmiller Design Group,  I gained hands-on experience in industrial cybersecurity. As a Learning Assistant, I’ve helped over 300 students, using Microsoft Teams and Word to support learning sessions. Through these experiences, I've built a strong foundation in cybersecurity, problem-solving, and technical communication. 
+      <portfolio-page id="screen-1"title = "About" pagenumber="1">
+        <div class = "about-content">
+        <img src=https://media.licdn.com/dms/image/v2/D5603AQG9gftGo7sHFg/profile-displayphoto-shrink_200_200/B56ZSoJMUDHsAg-/0/1737987770016?e=2147483647&v=beta&t=4VgFXPIbeA6TztgsWW_ks6x6OAZHnKAqH7PRL4B--Lg alt="Headshot" class="profile-pic" />
+        <div class="about-text">
+        <p>
+          My name is Amber-Chelsea Kibera and I am currently a sophomore attending Penn State University majoring in cybersecurity analytics and operations and minoring in security risk analysis. I have been able to gain hands-on experience in security risk analysis and network security through my coursework and team projects. During my internships at Velta Technology and Barry-Wehmiller Design Group,  I gained hands-on experience in industrial cybersecurity. As a Learning Assistant, I’ve helped over 300 students, using Microsoft Teams and Word to support learning sessions. Through these experiences, I've built a strong foundation in cybersecurity, problem-solving, and technical communication. 
+        </p>
+      </div>
+    </div>
+      </portfolio-page>
+      <portfolio-page id="screen-2" title = "Resume" pagenumber="2">
+        <p>"C:\Users\amber\Downloads\KIBERA_RESUME.pdf"</p>
+      </portfolio-page>
+      <portfolio-page id="screen-3" title = "Projects" pagenumber="3">
+        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      </portfolio-page>
+      <portfolio-page id="screen-4" title = "Experience" pagenumber="4">
+        <p>Incoming Information Security and Compliance Intern at the Federal Reserve Bank of Saint Louis.
+          Previous Cybersecurity Intern at Velta Technology.
+          Previous Cybersecurity Engineer Intern at Barry-Wehmiller Design Group.
         </p>
       </portfolio-page>
-      <portfolio-page title = "Resume" pagenumber="2">
-        <p>Insert Link</p>
-      </portfolio-page>
-      <portfolio-page title = "Relevant projects" pagenumber="3">
-        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
-      </portfolio-page>
-      <portfolio-page title = "Work Experience" pagenumber="4">
-        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
-      </portfolio-page>
-      <portfolio-page title = "Contact" pagenumber="5">
-        <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
+      <portfolio-page id="screen-5" title = "Contact" pagenumber="5">
+        <p>Email: amberkibera1@gmail.com                                                                                                                                                                                              
+          Phone Number: (314)-585-6125
+        </p>
       </portfolio-page>
 
 

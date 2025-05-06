@@ -21,6 +21,14 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
+    this.sections = [
+      {title: "About"},
+      {title: "Resume"},
+      {title: "Relevant Projects"},
+      {title: "Work Experience"},
+      {title: "Contact"}
+
+    ]
    
   }
 
@@ -29,6 +37,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      pagenumber: {type: Number},
     };
   }
 
@@ -39,7 +48,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        background-color: black;
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
@@ -68,11 +77,9 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <portfolio-sidebar></portfolio-sidebar>
-  <div class="wrapper"></div>
-  <slot></slot>
-</div>`;
+    <portfolio-sidebar .items="${this.pages}" @navigate-page="${this._onNav}"></portfolio-sidebar>
+    <div class="pages-wrapper"><slot></slot></div>
+  `;
   }
 
   /**

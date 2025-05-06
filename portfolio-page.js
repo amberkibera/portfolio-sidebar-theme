@@ -39,17 +39,16 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
-        margin-left: 200;
+    
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
+      section {
+        margin-left: 200px;
         padding: var(--ddd-spacing-4);
-      }
-      h3 span {
-        font-size: var(--portfolio-page-label-font-size, var(--ddd-font-size-s));
+        min-height: 100vh;
+        background-color: black;
+      }   
+      h1 {
+        margin: 0 0 var(--ddd-spacing-4) 0;
       }
     `];
   }
@@ -57,11 +56,10 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <section id="screen-${this.pagenumber}"></section>
+    <section id="screen-${this.pagenumber}">
     <h1>${this.title}</h1>
-
-  <slot></slot>
-</div>`;
+    <slot></slot>
+  </section>`;
   }
 
   firstUpdate(changedProperties) {
