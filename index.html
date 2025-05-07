@@ -108,6 +108,8 @@
 <script type="module" src="portfolio-page.js"></script>
 <script type="module" src="portfolio-sidebar-theme.js"></script>
 <script type="module" src="./portfolio-sidebar.js"></script>
+<script type="module" src="ddd-card.js"></script>
+<script type="module" src="ddd-card-list.js"></script>
 
 <script>
   window.addEventListener('page-added', (e) =>{
@@ -146,26 +148,34 @@
         <p>My name is Amber-Chelsea Kibera and I am a Cybersecurity Analytics and Operations major with a minor in Security Risk Analysis.</p>
       </portfolio-page>
       <portfolio-page id="screen-4" title = "Experience" pagenumber="4" class="screen-4">
-        <img
-        src="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/11392515-velta-technology-logo-condensed-300x175.png"
-        alt="Resume"
-        class="job-pic"
-      />
-      <img
-        src="https://d1myhw8pp24x4f.cloudfront.net/software_logo/1586963039_barry-wehmiller%20design%20group_mid.png"
-        alt="Resume"
-        class="job-pic"
-        />
-        <img
-        src="https://s3.amazonaws.com/files.fraser.stlouisfed.org/docs/siteimages/themes/27.jpg"
-        alt="Resume"
-        class="job-pic"
-        />
-        <p>
-          <li>Previous Cybersecurity Intern at Velta Technology.</li>
-        <li>Previous Cybersecurity Engineer Intern at Barry-Wehmiller Design Group.</li>
-        <li>Incoming Information Security and Compliance Intern at the Federal Reserve Bank of Saint Louis.</li>
-      </p>
+        <ddd-card-list>
+          <ddd-card
+        title="Velta Technology"
+        altText="Image of Velta Technology logo"
+        image="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/11392515-velta-technology-logo-condensed-300x175.png"
+        link="https://www.psu.edu/academics/campuses/abington"
+        >
+        <p>Velta Technology is comprised of multi-disciplinary industrial manufacturing and critical infrastructure experts. Velta understand the differences between industrial and IT infrastructures, as well as the toolsets required to secure them.</p>
+      </ddd-card>
+      <ddd-card
+        title="Barry-Wehmiller Design Group"
+        altText="Image of Barry-Wehmiller Design Group logo"
+        image="https://d1myhw8pp24x4f.cloudfront.net/software_logo/1586963039_barry-wehmiller%20design%20group_mid.png"
+        link="https://www.bwdesigngroup.com/"
+        >
+        <p>Barry-Wehmiller is a fully integrated AEC firm committed to helping our clients realize their most critical goals from Strategy to Commercialization™</p>
+      </ddd-card>
+        
+      <ddd-card
+        title="Federal Reserve Bank of St. Louis"
+        altText="Image of Federal Reserve Bank of St. Louis logo"
+        image="https://s3.amazonaws.com/files.fraser.stlouisfed.org/docs/siteimages/themes/27.jpg"
+        link="https://www.stlouisfed.org/"
+        >
+        <p>The St. Louis Fed is part of a system—with other Reserve banks—promoting stable prices, safe banking, and more.</p>
+      </ddd-card>
+        
+        
        
       </portfolio-page>
       <portfolio-page id="screen-5" title = "Contact" pagenumber="5" class="screen-5">
@@ -179,7 +189,9 @@
         <p>
           Phone Number: (314)-585-6125
         </p>
+      </ddd-card-list>
       </portfolio-page>
+    
 
 
 
