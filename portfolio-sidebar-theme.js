@@ -58,6 +58,19 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--portfolio-sidebar-theme-label-font-size, var(--ddd-font-size-s));
       }
+      .scroll-top-btn {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--ddd-theme-default-accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
       
     `];
   }
@@ -73,14 +86,39 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       }
     });
   }
+  _scrollTo(id) {
+    const el = this.renderRoot.querySelector(`#${id}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      history.pushState(null, '', `#${id}`);
+      this.activeScreen = id;
+    }
+  }
+
+  _handleHashScroll() {
+    const id = location.hash.replace('#', '');
+    if (id) {
+      setTimeout(() => {
+        this._scrollTo(id);
+        this.activeScreen = id;
+      }, 100);
+    }
+  }
+
+  _scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState(null, '', '#screen-1');
+  }
 
   // Lit render the HTML
   render() {
     return html`
     <portfolio-sidebar .items="${this.pages}" @navigate-page="${this._onNav}"></portfolio-sidebar>
     <div class="pages-wrapper"><slot></slot></div>
+    <button class="scroll-top-btn" @click="${this._scrollToTop}">↑</button>
   `;
   }
+  
 
   /**
    * haxProperties integration via file reference
