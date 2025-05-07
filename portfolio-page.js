@@ -45,7 +45,7 @@ export class PortfolioPage extends DDDSuper(I18NMixin(LitElement)) {
         margin-left: 200px;
         padding: var(--ddd-spacing-4);
         min-height: 100vh;
-        background-color: black;
+        background-color: var(--ddd-theme-default-pughBlue);
       }   
       h1 {
         margin: 0 0 var(--ddd-spacing-4) 0;

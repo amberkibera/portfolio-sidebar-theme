@@ -48,7 +48,7 @@ export class PortfolioSidebarTheme extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: black;
+        background-color: var(--ddd-theme-default-pughBlue);
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {

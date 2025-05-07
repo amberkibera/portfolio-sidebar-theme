@@ -45,10 +45,10 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        padding: var(--ddd-spacing-6);
         height:90vh;
-        width: 90px;
-        background-color: black;
+        width: 110px;
+        background-color: white;
         position: fixed;
         display: flex;
         flex-direction: column;
