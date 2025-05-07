@@ -40,7 +40,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: black;
+        background-color: var();
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
@@ -48,7 +48,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-6);
         height:90vh;
         width: 110px;
-        background-color: white;
+        background-color: var(--ddd-theme-default-white);
         position: fixed;
         display: flex;
         flex-direction: column;
