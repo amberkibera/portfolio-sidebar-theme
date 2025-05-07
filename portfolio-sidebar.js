@@ -67,7 +67,7 @@ export class PortfolioSidebar extends DDDSuper(I18NMixin(LitElement)) {
         <a href="#screen-1" @click="${this._onNav}">About</a>
         <a href="#screen-2" @click="${this._onNav}">Resume</a>
         <a href="#screen-3" @click="${this._onNav}">Projects</a>
-        <a href="#screen-4" @click="${this._onNav}">Experience</a>
+        <a href="#screen-4" @click="${this._onNav}">Skills</a>
         <a href="#screen-5" @click="${this._onNav}">Contact</a>
 
     
