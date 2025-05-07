@@ -69,8 +69,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       }
       
       .image-container img {
-        width: 100%;
-        height: auto;
+        width: 200px;
+        height: 100%;
         display: block;
         
        }
